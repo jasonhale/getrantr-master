@@ -37,6 +37,11 @@ var AdListView = Backbone.View.extend({
 
   render: function() {
     this.el.innerHTML = '';
+    this.el.children = [];
+
+    // OR this.el.children.length = 0;
+    // more efficient than reassigning to an empty array.
+    
     this.collection.each((model) => {
       this.renderAd(model);
     });

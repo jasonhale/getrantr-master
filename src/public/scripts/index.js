@@ -1,5 +1,9 @@
 /* global AdCollection, AdListView, AddRantView, RantCollection, RantListView, UserModel, UserView */
 
+if (!window.$){
+  alert('U HAZ NO JQUERY');
+}
+
 $(function() {
   'use strict';
 
@@ -33,3 +37,4 @@ $(function() {
   rants.fetch();
 
 });
+

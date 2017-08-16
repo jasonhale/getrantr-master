@@ -11,7 +11,7 @@ var AddRantView = Backbone.View.extend({
 
   onChange: function(evt) {
     var text = (evt.target || {}).value;
-    if (text) {
+    if (typeof text === 'string') {
       localStorage.setItem('next-rant', text);
     }
   },
@@ -23,10 +23,12 @@ var AddRantView = Backbone.View.extend({
       text: form.rant.value
     };
 
-    analytics.trackConversion();
-    this.collection.create(rant, { wait: true });
+    if (rant.text){
+      analytics.trackConversion();
+      this.collection.create(rant, { wait: true });
 
-    form.rant.value = '';
+      form.rant.value = '';
+    }
   }
 
 });

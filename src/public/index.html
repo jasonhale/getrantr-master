@@ -23,7 +23,7 @@
     <div id="add-rant">
       <form target="/api/rant" method="post" ignore>
         <label for="rant_text">What has you on a soapbox today?</label>
-        <textarea id="rant_text" name="rant" placeholder="Well, actually..."></textarea>
+        <textarea id="rant_text" name="rant" placeholder="Well, actually..." required aria-required="true"></textarea>
         <div class="controls pull-right">
           <button type="submit">Rant</button>
         </div>
@@ -43,7 +43,7 @@
 
   <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/analytics.js"></script>
 
-  <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/jquery.js"></script>
+     <!-- <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/jquery.js"></script>    -->
   <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/lodash.js"></script>
   <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/backbone.js"></script>
   <script type="text/javascript" src="http://cdn.getrantr.com:9000/vendor/moment.js"></script>

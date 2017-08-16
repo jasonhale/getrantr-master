@@ -18,21 +18,28 @@ var RantView = Backbone.View.extend({
     this.model.on('change', this.render, this);
     this.$el.on('click', function(evt) {
       if (evt.target.matches('.js-delete')) {
+        evt.preventDefault();
         this.onDelete(evt);
       }
     }.bind(this));
   },
 
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    var rant = this.model.toJSON();
+    if (typeof rant.text !== 'string') {
+      console.log('invalid rant data', rant.text);
+      rant.text = "OH SNAP! You got baaaaad data!";
+    }
+
+    this.$el.html(this.template(rant));
     return this;
   },
 
-  onDelete: function() {
+  onDelete: function(evt) {
     setTimeout(function() {
       this.model.destroy();
       this.remove();
-    });
+    }.bind(this));
   }
 
 });
